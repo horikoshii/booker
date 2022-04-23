@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>bookers-index</title>
-    <meta name="csrf-param" content="authenticity_token">
-    <meta name="csrf-token" content="s1dKRqlQXYVx8Zo9Ad0ONyBRc8/YpvKLIsNsScCknKCt/Z85iARvn6xDkIHPkaB9zHwb+xTCU0z4MxFVUXzKrg==">
-    <link rel="stylesheet" media="all" href="/assets/application-d12397cbc3a266ce5a99f7b588223090c55ca04a439953bb5f9304395de93fc3.css" data-turbolinks-track="reload">
-    <script src="/assets/application-114264dd93c8ff30e4335b71eed7949d66c4e7a8eb62e2de6284c046fe07104b.js" data-turbolinks-track="reload"></script>
-  </head>
-
   <body>
     <p id="notice"></p>
     <h1>Books</h1>
@@ -135,21 +125,14 @@
       </tbody>
     </table>
     <h2>New book</h2>
-    <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="Q9nKw+1HjYgebtXKMPwq7OYs19w5Me1OK0vxN72EqK68snja+lVtDbs+0uLZ8oaEVGPdOxNxsffWht40n59p2w==">
-
-  <div class="field">
-    <label for="book_title">Title</label>
-    <input class="book_title" type="text" name="book[title]" id="book_title">
-  </div>
-
-  <div class="field">
-    <label for="book_body">Body</label>
-    <textarea class="book_body" name="book[body]" id="book_body"></textarea>
-  </div>
-
-  <div class="actions">
-    <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book">
-  </div>
-    </form>
+    <%= form_with model: @book do |f| %>
+    <h4>Title</h4>
+      <%= f.text_field :title %>
+    <h4>body</h4> 
+      <%= f.text_area :body %>
+    <h4></h4>
+      <%= f.submit 'Create Book' %>
+    <% end %>
+    
   </body>
 </html>
