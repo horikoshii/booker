@@ -19,6 +19,13 @@
         　<td><%= link_to "destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
         </tr>
         <% end %>
+        
+        <% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+   <% end %>
+   
       </tbody>
     </table>
     <h2>New book</h2>
@@ -41,5 +48,4 @@
     <h4></h4>
       <%= f.submit 'Create Book' %>
     <% end %>
-
-  </body>
+　</body>

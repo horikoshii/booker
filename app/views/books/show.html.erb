@@ -1,4 +1,19 @@
-<p>Book was successfully updated.</p>
+<p>Editing Book</p>
+
+<% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+   <% end %>
+
+<% if @book.errors.any? %>
+   <%= @book.errors.count %> errors prohibited this book from being saved:
+   <ul>
+     <% @book.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+   </ul>
+  <% end %>
 
 <p>
  <strong>Title:</strong>
